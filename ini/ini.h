@@ -3,7 +3,7 @@
  * Author       : Thuan Ho (sandwichdoge@gmail.com)
  * Created on   : 24/03/2019
  */
-
+#pragma once
 #include <string>
 
 class ini
