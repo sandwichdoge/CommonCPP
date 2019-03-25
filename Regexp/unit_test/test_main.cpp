@@ -9,8 +9,22 @@ TEST(SEARCH, CASE1)
     std::vector<std::string> v;
 
     bool ret = Regexp::search(s, ptn, v);
+
     EXPECT_EQ(ret, true);
-    EXPECT_TRUE(v[0] == "2 fresh apples");
+    EXPECT_TRUE(v[0] == "2" && v[1] == "apples");
+}
+
+
+TEST(SEARCH, CASE2)
+{
+    std::string s = "['string one', 'message two','person 3']";
+    std::string ptn = "\'(.*?)\'";
+    std::vector<std::string> v;
+
+    bool ret = Regexp::search(s, ptn, v);
+    
+    EXPECT_EQ(ret, true);
+    EXPECT_TRUE(v[0] == "string one");
 }
 
 
@@ -22,6 +36,7 @@ TEST(REPLACE, CASE1)
     Regexp::replace(s, ptn, "$1 okay $2");
     EXPECT_TRUE(s == "Today I found 2 okay apples and 3 rotten bananas");
 }
+
 
 
 int main(int argc, char **argv) {

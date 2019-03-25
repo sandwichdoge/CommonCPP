@@ -4,14 +4,14 @@
 
 bool Regexp::search(std::string str, std::string pattern, std::vector<std::string> &out)
 {
-    std::regex e(pattern, std::regex::nosubs);
+    std::regex e(pattern);
     std::smatch m;
 
     while (std::regex_search(str, m, e))
     {
-        for (auto x:m)
+        for (int i = 1; i < m.size(); i++)
         {
-            out.push_back(x);
+            out.push_back(m.str(i));
         }
         str = m.suffix().str();
     }
