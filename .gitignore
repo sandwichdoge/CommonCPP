@@ -2,3 +2,6 @@
 *.o
 *.out
 *.conf
+*.gch
+*.so
+*.a
