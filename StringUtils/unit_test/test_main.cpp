@@ -4,7 +4,7 @@
 #include <string>
 
 
-TEST(GROUP1, CASE1)
+TEST(BETWEEN_BRACKETS, CASE1)
 {
     std::vector<std::string> v;
     std::string str = "'yes', 'no','maybe'";
@@ -34,6 +34,50 @@ TEST(CHAR_COUNT, CASE2)
     std::string str = "abcde\n";
     int n = StringUtils::charCount(str, '\0');
     EXPECT_EQ(n, 0);
+}
+
+
+TEST(STRING_TRIM_LEFT, CASE1)
+{
+    std::string str = "abc";
+    StringUtils::stringTrimLeft(str, 2);
+
+    EXPECT_TRUE(str == "c");
+}
+
+
+TEST(STRING_TRIM_LEFT, CASE2)
+{
+    std::string str = "abc";
+    StringUtils::stringTrimLeft(str, 5);
+
+    EXPECT_TRUE(str == "");
+}
+
+
+TEST(STRING_TRIM_RIGHT, CASE1)
+{
+    std::string str = "abc";
+    StringUtils::stringTrimRight(str, 2);
+
+    EXPECT_TRUE(str == "a");
+}
+
+TEST(STRING_TRIM_RIGHT, CASE2)
+{
+    std::string str = "abc";
+    StringUtils::stringTrimRight(str, 3);
+
+    EXPECT_TRUE(str == "");
+}
+
+
+TEST(STRING_REPLACE, CASE1)
+{
+    std::string str = "a nice doge.";
+    StringUtils::stringReplace(str, "doge", "cat");
+
+    EXPECT_TRUE(str == "a nice cat.");
 }
 
 

@@ -18,4 +18,10 @@ class StringUtils
         
         // Count number of chars c in string
         static int charCount(std::string str, char c);
+
+        static bool stringTrimLeft(std::string &s, size_t n);
+
+        static bool stringTrimRight(std::string &s, size_t n);
+
+        static bool stringReplace(std::string &s, std::string sub_old, std::string sub_new);
 };

@@ -55,6 +55,46 @@ bool StringUtils::betweenBrackets(std::vector<std::string> &out, std::string str
     return true;
 }
 
+bool StringUtils::stringTrimLeft(std::string &s, size_t n)
+{
+    if (s.length() == 0 || n < 0) return false;
+
+    if (n >= s.length()) {
+        s = "";
+        return true;
+    }
+
+    s = s.substr(n, s.length() - 1);
+
+    return true;
+}
+
+#define ZERO_FLOOR(n) (n < 0 ? n == 0 : n)
+bool StringUtils::stringTrimRight(std::string &s, size_t n)
+{
+    if (s.length() == 0 || n < 0) return false;
+
+    if (n >= s.length()) {
+        s = "";
+        return true;
+    }
+
+    s = s.substr(0, ZERO_FLOOR(s.length() - n));
+
+    return true;
+}
+
+
+bool StringUtils::stringReplace(std::string &s, std::string sub_old, std::string sub_new)
+{
+    size_t old_len = sub_old.length();
+    size_t old_pos = s.find(sub_old);
+
+    s.replace(old_pos, old_len, sub_new);
+
+    return true;
+}
+
 /*
 int main()
 {
