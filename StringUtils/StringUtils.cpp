@@ -89,6 +89,8 @@ bool StringUtils::stringReplace(std::string &s, std::string sub_old, std::string
 {
     size_t old_len = sub_old.length();
     size_t old_pos = s.find(sub_old);
+    
+    if (old_pos == std::string::npos) return false;
 
     s.replace(old_pos, old_len, sub_new);
 
