@@ -87,7 +87,7 @@ bool StringUtils::stringTrimRight(std::string &s, size_t n)
 
 bool StringUtils::stringReplace(std::string &s, std::string sub_old, std::string sub_new)
 {
-    if (sub_old == sub_new || sub_old.empty()) return;
+    if (sub_old == sub_new || sub_old.empty()) return false;
 
     size_t old_pos = 0;
     
