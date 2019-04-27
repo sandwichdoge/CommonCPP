@@ -9,7 +9,7 @@ bool ini::IniWrite(std::string &out, std::string section, std::string key, std::
 	size_t pos = out.find("\n" + key + "=", sect) + 1;
 
 
-    if (sect == -1) // New section
+    if (sect == std::string::npos) // New section
     {
         out = "[" + section + "]\n\n" + out;
         sect = 0;
@@ -46,16 +46,16 @@ bool ini::IniRead(std::string content, std::string section, std::string key, std
     if (content.empty() || key.empty() || section.empty()) return false;
 
     size_t sect = content.find("[" + section + "]", 0); 
-    if (sect == -1) return false;
+    if (sect == std::string::npos) return false;
 
 	size_t pos = content.find("\n" + key + "=", sect) + 1;
-    if (pos == -1) return false;
+    if (pos == std::string::npos) return false;
 
     size_t val = content.find("=", pos) + 1;
-    if (val == -1) return false;
+    if (val == std::string::npos) return false;
 
     size_t lf = content.find("\n", val);
-    if (lf == -1) // EOF with no spare linebreak;
+    if (lf == std::string::npos) // EOF with no spare linebreak;
     {
         lf = content.length();
     }
