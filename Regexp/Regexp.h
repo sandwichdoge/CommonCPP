@@ -8,10 +8,6 @@
 class Regexp
 {
 public:
-    Regexp();
-    virtual ~Regexp();
-
-
     static bool search(std::string str, std::string pattern, std::vector<std::string> &out);
 
     static bool replace(std::string &str, std::string pattern, std::string replace);
