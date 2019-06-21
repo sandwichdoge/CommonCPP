@@ -58,8 +58,8 @@ TEST(ThreadSafeBlockingQueue, SimultaneousAccess)
 {
     ThreadSafeBlockingQueue<int> queue;
 
-    std::thread t1(PopQueue, &queue, 5000000);
-    std::thread t2(PushQueue, &queue, 5000000);
+    std::thread t1(PopQueue, &queue, 1000000);
+    std::thread t2(PushQueue, &queue, 1000000);
 
     t1.join();
     t2.join();
