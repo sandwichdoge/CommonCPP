@@ -28,6 +28,20 @@ TEST(SEARCH, CASE2)
 }
 
 
+TEST(SEARCH, CASE3)
+{
+    std::string s = "yummy_cookie=choco; tasty_cookie=strawberry";
+    std::string exp = "(\\w+)=([^;]*)";
+    std::vector<std::string> v;
+
+    bool ret = Regexp::search(s, exp, v);
+
+    for (int i = 0; i < v.size(); i++) {
+        std::cout << v.at(i)<< "\n";
+    }
+}
+
+
 TEST(REPLACE, CASE1)
 {
     std::string s = "Today I found 2 fresh apples and 3 rotten bananas";
