@@ -145,4 +145,51 @@ public:
             return std::string(s);
         }
     }
+
+    static bool IsValidNumberString(std::string s) {
+        int start = 0;
+        if (s[0] == '-' || s[0] == '+') start++;
+
+        for (int i = start; s[i]; i++) {
+            if (s[i] != '.' && (s[i] < '0' || s[i] > '9')) {
+                return false;
+            }
+        }
+
+        return true;
+    }
+
+    static bool StringToInteger(const std::string& s, int& out) {
+        out = 0;
+
+        if (!IsValidNumberString(s)) {
+            return false;
+        }
+
+        long long tmp = out;
+        out = atoi(s.c_str());
+
+        if (tmp != 0 && out == 0) {
+            return false;
+        }
+
+        return true;
+    }
+
+    static bool StringToInteger(const std::string& s, long long& out) {
+        out = 0;
+
+        if (!IsValidNumberString(s)) {
+            return false;
+        }
+
+        long long tmp = out;
+        out = atoll(s.c_str());
+
+        if (tmp != 0 && out == 0) {
+            return false;
+        }
+
+        return true;
+    }
 };

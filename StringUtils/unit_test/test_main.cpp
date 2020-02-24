@@ -94,6 +94,24 @@ TEST(INT_TO_STRING, CASE2)
     EXPECT_EQ(s, "2000000000000");
 }
 
+TEST(STRING_TO_INT, CASE1)
+{
+    std::string s = "3000000";
+    int n;
+    bool success = StringUtils::StringToInteger(s, n);
+    EXPECT_EQ(success, true);
+    EXPECT_EQ(n, 3000000);
+}
+
+TEST(STRING_TO_INT, CASE2)
+{
+    std::string s = "3000000000000";
+    long long n;
+    bool success = StringUtils::StringToInteger(s, n);
+    EXPECT_EQ(success, true);
+    EXPECT_EQ(n, 3000000000000);
+}
+
 int main(int argc, char **argv) {
           ::testing::InitGoogleTest(&argc, argv);
           return RUN_ALL_TESTS();
