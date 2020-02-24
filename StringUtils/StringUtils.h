@@ -101,4 +101,48 @@ public:
 
         return true;
     }
+
+    static std::string intToString(int n) {
+        char s[16] = {0};
+
+        int total = snprintf(s, sizeof(s), "%d", n);
+        if (total <= 0) {
+            return "";
+        } else {
+            return std::string(s);
+        }
+    }
+
+    static std::string intToString(unsigned int n) {
+        char s[16] = {0};
+
+        int total = snprintf(s, sizeof(s), "%u", n);
+        if (total <= 0) {
+            return "";
+        } else {
+            return std::string(s);
+        }
+    }
+
+    static std::string intToString(long long n) {
+        char s[16] = {0};
+
+        int total = snprintf(s, sizeof(s), "%lld", n);
+        if (total <= 0) {
+            return "";
+        } else {
+            return std::string(s);
+        }
+    }
+
+    static std::string intToString(unsigned long long n) {
+        char s[16] = {0};
+
+        int total = snprintf(s, sizeof(s), "%llu", n);
+        if (total <= 0) {
+            return "";
+        } else {
+            return std::string(s);
+        }
+    }
 };

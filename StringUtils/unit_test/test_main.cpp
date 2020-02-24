@@ -80,6 +80,19 @@ TEST(STRING_REPLACE, CASE1)
     EXPECT_TRUE(str == "a nice cat.");
 }
 
+TEST(INT_TO_STRING, CASE1)
+{
+    int n = 2000000000;
+    std::string s = StringUtils::intToString(n);
+    EXPECT_EQ(s, "2000000000");
+}
+
+TEST(INT_TO_STRING, CASE2)
+{
+    long long n = 2000000000000;
+    std::string s = StringUtils::intToString(n);
+    EXPECT_EQ(s, "2000000000000");
+}
 
 int main(int argc, char **argv) {
           ::testing::InitGoogleTest(&argc, argv);
