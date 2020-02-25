@@ -8,23 +8,24 @@
 class Regexp
 {
 public:
-    static bool search(std::string str, std::string pattern, std::vector<std::string> &out);
+    static bool search(const std::string &str, std::string pattern, std::vector<std::string> &out);
 
     static bool replace(std::string &str, std::string pattern, std::string replace);
 };
 
-bool Regexp::search(std::string str, std::string pattern, std::vector<std::string> &out)
+bool Regexp::search(const std::string &str, std::string pattern, std::vector<std::string> &out)
 {
     std::regex e(pattern);
     std::smatch m;
+    std::string tmp = str;
 
-    while (std::regex_search(str, m, e))
+    while (std::regex_search(tmp, m, e))
     {
         for (int i = 1; i < m.size(); i++)
         {
             out.push_back(m.str(i));
         }
-        str = m.suffix().str();
+        tmp = m.suffix().str();
     }
 
     return out.size() > 0 ? true : false;
