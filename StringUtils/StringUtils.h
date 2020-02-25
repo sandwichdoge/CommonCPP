@@ -47,7 +47,7 @@ public:
     }
     
     // Count number of chars c in string
-    static int charCount(std::string str, char c) {
+    static int charCount(const std::string &str, char c) {
         int ret = 0;
 
         for (size_t i = 0; i < str.length(); i++) {
