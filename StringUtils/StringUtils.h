@@ -192,4 +192,8 @@ public:
 
         return true;
     }
+
+    static std::string stringRight(const std::string& s, size_t n) { 
+        return s.substr(s.length() - n, s.length() - 1); 
+    }
 };
