@@ -47,7 +47,7 @@ void LockingQueue<T>::_loop() {
     while (_running) {
         std::unique_lock<std::mutex> mlock(_m);
         _cv.wait(mlock, [this] { return (this->_dataInQueue > 0 || !_running); });
-        if (_Q.empty()) {
+        if (_Q.empty() && !_running) {
             break;
         }
         T data = _Q.front();
